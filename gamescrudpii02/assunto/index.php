@@ -12,33 +12,34 @@ if(isset($_POST['btnPesquisar'])) {
 			// Criar um função para evitar injection
 
 			$query = odbc_exec($db, "SELECT 
-										codArea, 
+										codAssunto, 
 										descricao 
 									FROM 
 										area 
 									WHERE descricao LIKE '%$pesquisa%'" ); 
 	} else {
-		$query = odbc_exec($db, 'SELECT * FROM Area');
+		$query = odbc_exec($db, 'SELECT * FROM Assunto');
 	}
 } else {
 	// Valor default
-	$query = odbc_exec($db, 'SELECT * FROM Area');
+	$query = odbc_exec($db, 'SELECT * FROM Assunto');
 }
 
 // Exibe na grade
 while($result = odbc_fetch_array($query)){
-	$areas[$result['codArea']] = utf8_encode($result['descricao']);
+	$areas[$result['codAssunto']] = utf8_encode($result['descricao']);
 }
 
 //DELETE
 if(isset($_GET['dcod'])){
 	if(is_numeric($_GET['dcod'])){
 		//verifica se existe dependencia
+		// Corregir
 		$descricao = odbc_exec($db,' SELECT descricao FROM Assunto WHERE codArea='.$_GET['dcod']);
 		if(odbc_num_rows($descricao) > 0){
 			$msg = "Não foi possível deletar.";
 		}else{
-			if(!odbc_exec($db, "DELETE FROM Area WHERE codArea =".$_GET['dcod'])){
+			if(!odbc_exec($db, "DELETE FROM Assunto WHERE codAssunto =".$_GET['dcod'])){
 				$msg = "Não foi possivel apagar o dado";
 			}else{
 				header("Location: index.php");
@@ -51,14 +52,14 @@ if(isset($_GET['dcod'])){
 
 // Customizar depois - Augusto
 if (isset($_POST['btnNovo'])) {
-	include_once('templats/crudArea.php');
+	include_once('templats/crudAssunto.php');
 } 
 
 // INSERT
 if(isset($_POST['btnEnviar'])) {
-	$area = $_POST['txtDescricao'];
-	$area = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['txtDescricao']);
-	if(!odbc_exec($db, "INSERT INTO Area (descricao) VALUES('$area');")){
+	$assunto = $_POST['txtDescricao'];
+	$assunto = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['txtDescricao']);
+	if(!odbc_exec($db, "INSERT INTO Assunto (descricao) VALUES('$assunto');")){
 		$msg = "Não foi possivel inserir";
 	}else {
 		header("Location: index.php");
@@ -67,9 +68,9 @@ if(isset($_POST['btnEnviar'])) {
 
 //EDITAR
 if(isset($_GET['ecod']) && is_numeric($_GET['ecod'])){
-	$select = odbc_exec($db, "SELECT * FROM Area WHERE codArea = ".$_GET['ecod']);
+	$select = odbc_exec($db, "SELECT * FROM Assunto WHERE codArea = ".$_GET['ecod']);
 	$result = odbc_fetch_array($select);
-	include_once('templats/crudArea.php');
+	include_once('templats/crudAssunto.php');
 } else {
 	$result = '';
 }
@@ -77,9 +78,9 @@ if(isset($_GET['ecod']) && is_numeric($_GET['ecod'])){
 //UPDATE
 if(isset($_POST['btnAlterar']  )){
 	if(is_numeric($_GET['ecod'])){
-		$area = $_POST['txtDescricao'];
-		$area = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['txtDescricao']);
-		if(odbc_exec($db,"UPDATE Area SET descricao = '$area' WHERE codArea = {$_GET['ecod']}")){
+		$assunto = $_POST['txtDescricao'];
+		$assunto = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['txtDescricao']);
+		if(odbc_exec($db,"UPDATE Assunto SET descricao = '$assunto' WHERE codArea = {$_GET['ecod']}")){
 			header("Location: index.php");
 		}
 	}else{
@@ -87,7 +88,6 @@ if(isset($_POST['btnAlterar']  )){
 	}
 }
 
-
-include('templats/area.php');	
+include('templats/assunto.php');	
 
 ?>

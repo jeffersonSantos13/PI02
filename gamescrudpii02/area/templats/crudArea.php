@@ -3,10 +3,11 @@
 </head>
 <body>
 	<div id="crudArea">
-		<form id="frmarea-crud" method="post">
+		<form id="frmarea-crud" method="post" <?php echo "action='?ecod=".$result['codArea']."'"?> >
 			<label class="label-default">Descrição</label>
-			<input type="text" name="txtDescricao" class="style-input-default" placeholder="Digite a descrição" />
-			<input type="submit" name="btnEnviar" class="btArea" value="Enviar" />
+			<input type="text" name="txtDescricao" class="style-input-default" <?php echo "value='".$result['descricao']."'"?> placeholder="Digite a descrição"/>
+
+			<input type="submit" <?php echo "name='btnAlterar'" ?> class="btArea" value="Enviar" />
 		</form>	
 	</div>
 </body>

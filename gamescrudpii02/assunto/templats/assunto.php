@@ -24,10 +24,10 @@
 			</div>
 
 			<section id="form-content">
-				<h3>Cadastro da área</h3>
+				<h3>Cadastro de assunto</h3>
 
-				<!-- Campo de pesquisa e inclusão -->	
-				<form id="frma" action=""  method="post">
+				<!-- Campo de pesquisa -->	
+				<form id="frma" action="" method="post">
 					<input type="text" name="txtPesquisa" id="txtPesquisa" placeholder="Pesquisar descrição ...">
 					<input type="submit" name="btnPesquisar" id="btnPesquisar" value="Pesquisar"/>
 
