@@ -1,0 +1,384 @@
+﻿/*estilo CSS*/
+* { font-family: "Roboto", sans-serif;outline:none; }
+body {
+  background: #fff; 
+  /*background: -webkit-linear-gradient(right, #76b852, #8DC26F);*/
+  /*background: -moz-linear-gradient(right, #76b852, #8DC26F);*/
+  /*background: -o-linear-gradient(right, #76b852, #8DC26F);*/
+  /*background: linear-gradient(to left, #76b852, #8DC26F);*/
+  /*-webkit-font-smoothing: antialiased;*/
+  /*-moz-osx-font-smoothing: grayscale;     */
+/*background-image:url(../img/fundoPI.png);*/
+background-repeat:no-repeat;
+background-size:100%;  
+}
+
+input { 
+  outline: none;
+}
+a { color: white; text-decoration: none; }
+/* cabeçalho - Japa  */
+
+header {
+  margin: 0px 0px ;
+	position: absolute;
+  float: left;
+	left: 0px;
+	bottom: 860px;
+	top: 0px;
+	width: 100%;
+	height: 50px;
+	background-color: #385965;
+	z-index:999;
+}
+
+ /* Menu principal */   
+#menu {
+  height: 70px;
+  width: auto;
+}
+
+#menu > ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+  list-style-type: none;
+}
+
+#menu > ul > li {
+  float: left;
+}
+/* update augusto 13/10 */
+#menu ul li:nth-child(1){
+	border-right:1px solid white;
+}
+.nav-item {
+  display: inline-block;
+  padding: 15px 20px;
+  line-height: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+/* fim update augusto 13/10 */
+.nav-item:hover { 
+  background-color: #444;
+}
+
+.nav-content {
+  position: absolute;
+  top: 70px;
+  overflow: hidden;
+  background: #222;
+}
+
+.nav-content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-content a:hover {
+  text-decoration: underline;
+}
+
+.nav-sub {
+  padding: 20px;
+}
+
+.nav-sub ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.nav-sub ul li a {
+  display: inline-block;
+  padding: 5px 0;
+}
+
+
+/*********************** Area ********************/ 
+#frmarea {
+  height: 500px;
+  width: 98%;
+  margin: 50px 2%; 
+  left: 0;
+  padding: 0; 
+  position: relative;
+  float: left;
+  background-color: #fff;
+}
+
+/*Mensagem de erro*/
+#msg {
+  float: left;
+  position: absolute;
+  height: auto;
+  width: 200px;
+  margin-left: 45%;
+}
+
+/*************** Fim ********************/
+
+#form-content {
+  float: left;
+  position: relative;
+  height: auto;
+  width: 96%;
+}
+
+#form-content > h3 {
+  color: #2c3e50;
+}
+
+#frma {
+  outline: 0;
+  width: 100%;
+  border: 0;
+  margin: 0 0 0px 0;
+  padding: 15px;
+  font-size: 14px;
+  position: relative;
+}
+
+
+#frma label {
+  border: none;
+  background: transparent;
+  margin-bottom: 10px;
+  height: 45px;
+	font-size: 16px;
+	padding-right: 10px;
+}
+
+#frma input[type="text"] {
+  width: 340px;
+  background: #fff;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+
+#frma input[type='text']:focus {
+  border-bottom: solid 2px #2980b9; 
+}
+/*Feito augusto 13/10*/
+#btnVoltar{
+  -moz-box-shadow: inset 0px 0px 0px 0px #385965;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #385965;
+  box-shadow: inset 0px 1px 0px 0px #385965;
+  background-color: #385965;
+  border: 1px solid #385965;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  outline: none;
+  position: absolute;
+  border-radius: 4px;
+  margin-left:120px;
+  color:white;
+}
+
+
+/*fim augusto */
+#frma #btnNovo,
+#frma #btnPesquisar,
+#frmarea-crud .btArea,
+#frmaAssunto-crud .btArea {
+	-moz-box-shadow: inset 0px 0px 0px 0px #385965;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #385965;
+  box-shadow: inset 0px 1px 0px 0px #385965;
+  background-color: #385965;
+  border: 1px solid #385965;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+	outline: none;
+  position: absolute;
+  border-radius: 4px;
+}
+
+/*Verificar icone */
+#frma input[type='button'] {
+  background-image: url("img/loupe.png");
+}
+
+#frma #btnNovo {
+  right: 3.5%;
+  bottom: 15px;
+}
+
+/* Grade de itens da area */
+
+#area-content {
+  float: left;
+  position: relative;
+  width: 96%;
+  height: auto;
+  margin-top: -25px;
+}
+
+table {
+  font-family: "Roboto", sans-serif;     
+  background: #f5f5f5;
+  border-collapse: separate;
+  box-shadow: inset 0 1px 0 #fff;
+  font-size: 14px;
+  line-height: 24px;
+  margin: 20px auto;
+  text-align: left;
+  width: 98%;
+} 
+
+td {
+  border-right: 1px solid #fff;
+  border-left: 1px solid #e8e8e8;
+  border-top: 1px solid #fff;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 10px 15px;
+  position: relative;
+  /*transition: all 300ms;*/
+}
+
+td:first-child {
+  box-shadow: inset 1px 0 0 #fff;
+} 
+
+td:last-child {
+  border-right: 1px solid #e8e8e8;
+  box-shadow: inset -1px 0 0 #fff;
+} 
+
+thead {
+  font-size: 14px;
+  color: #fff;
+  background-color: #385965;
+}
+
+.cmcodigo { width: 100px; }
+.cmdescricao { width: 66%; }
+.cmdescricao1 { width: 32%; }
+.cmdescricao2 { width: 32%; }
+
+
+.adel,
+.aedit {
+  color: #385965;
+  text-decoration: none;
+}
+
+.adel:hover,
+.aedit:hover {
+  color: #2c3e50;
+  text-decoration: underline;
+}
+
+/*Crud da area */
+
+
+#frmarea-crud input {
+  float: left;
+  margin: 0px 50px;
+}
+
+#frmarea-crud input[type='submit'] { margin-left: 30%;position:relative; margin-top:25px;}
+.label-default { 
+  position: absolute;
+  margin: 70px 50px;
+  color: #385965;
+}
+
+.style-input-default {
+  width: 320px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  margin: 5px 1px 3px 0px;
+  border-bottom: 1px solid #ccc;
+}
+
+.style-input-default:focus {
+  margin: 5px 1px 3px 0px;
+  border-bottom: 1px solid #385965;
+}
+/*Crud de assunto*/
+#frmaAssunto-crud input, #frmaAssunto-crud label , #frmarea-crud input, #frmarea-crud label  {
+  position: relative;
+}
+#frmaAssunto-crud select {margin-left:13px;padding: 8px 18px;}
+#crudAssunto h3, #crudArea h3{color:#385965;position:relative;font-family: "Roboto", sans-serif;  margin: 0 50px 20px 50px;}
+#frmaAssunto-crud input[type='submit'] {  position: relative;margin-left:49%;margin-top:25px;}
+/* Fim - Japa */
+/* Pagina de professores */
+.cmNome{
+	width:22%
+}
+.cmEmail{
+	width:33%;
+}
+.cmID{
+	width:6%;
+}
+.cmTipo{
+	width:5%;
+}
+
+
+#footer {
+  position: fixed;
+  background-color:#00BBD4;
+  width: 1910px;
+  height: 132px;
+  top: 935px;
+  left: 0px;
+}
+/*--------------------------------------- Ligh-------------tbox---------------------- */
+.background,.backgroundUp {
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	background-color:#000;
+	opacity:.0;
+	filter:alpha(opacity=0);
+	z-index:100;
+	display:none;
+}
+	
+.box,.boxUp{
+	position:absolute;
+	top:20%;
+	left:30%;
+	z-index:101;
+	border-radius:4px;
+	display:none;
+	margin: 100px auto;
+	  width: 550px;
+	  height: 250px;
+	  border-radius: 5px;
+	  background: #ccc;
+}
+.close,.closeUp{
+	padding:2px;
+	cursor:pointer;
+}
+
+.select-default {
+  position: relative; 
+  margin-left: 13px;
+  padding: 8px 18px;
+}
+
+/* ------------------------------------------------------- */
+.logoIndex{
+	float:left;
+	margin-left:30%;
+	margin-top:150px;
+}
