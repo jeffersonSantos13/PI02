@@ -1,0 +1,653 @@
+﻿/*estilo CSS*/
+* { font-family: "Roboto", sans-serif;outline:none; }
+body {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;     
+background-image:url(../img/fundoPI.png);
+background-repeat:no-repeat;
+background-size:100%;  
+}
+
+input { 
+  outline: none;
+}
+a{color:white;text-decoration:none;}
+/* cabeçalho - Japa  */
+
+header {
+  margin: 0px 0px ;
+	position: absolute;
+  float: left;
+	left: 0px;
+	bottom: 860px;
+	top: 0px;
+	width: 100%;
+	height: 50px;
+	background-color: #385965;
+	z-index:999;
+}
+
+
+
+ /* Menu principal */   
+#menu {
+  height: 70px;
+  width: auto;
+}
+
+#menu > ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+  list-style-type: none;
+
+}
+
+#menu > ul > li {
+  float: left;
+}
+
+
+/* update augusto 13/10 */
+#menu ul li:nth-child(1){
+
+}
+.nav-item {
+  display: inline-block;
+  padding: 15px 20px;
+  line-height: 20px;
+  color: #fff;
+  text-decoration: none;
+}
+/* fim update augusto 13/10 */
+.nav-item:hover { 
+  background-color: #00BBD4;
+}
+
+.nav-content {
+  position: absolute;
+  top: 70px;
+  overflow: hidden;
+  background: #222;
+}
+
+.nav-content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-content a:hover {
+  text-decoration: underline;
+}
+
+.nav-sub {
+  padding: 20px;
+}
+
+.nav-sub ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.nav-sub ul li a {
+  display: inline-block;
+  padding: 5px 0;
+}
+
+
+#footer {
+  position: fixed;
+  background-color:#00BBD4;
+  width: 100%;
+  height: 39px;
+  top: 935px;
+  left: 0px;
+}
+
+
+/****************** HOME *************************/
+
+#section{
+
+ height: 550px;
+  width: 80%;
+  margin: 50px 2%; 
+  top:180px;  
+  left: 155px;
+  padding: 20px; 
+  position: relative;
+  float: left;
+  background-color: #fff;
+  border-radius:50px;
+
+}
+
+
+      
+#container{
+position: absolute;
+
+width: 480px;
+height: 320px;
+margin: 220px auto;
+left: 15%;
+top: -5%;
+
+
+}
+
+.principal{
+  
+  width: 500px;
+  height: auto;
+  
+  overflow: hidden;
+
+
+}
+
+.slide{
+  display:flex;
+
+  width: 600%;
+  height: 120%;
+  transition: all .8s;
+
+}
+
+label img{
+
+  position: relative;
+  top: 160%;
+  left: -10px;
+  width: 96px;
+   cursor: pointer;
+  float: left;
+  opacity: 0.3;
+  transition: all .4s;
+  
+}
+
+#textos{
+  opacity: 1;
+  position: absolute;
+  left: 600px;
+  top: 15%;
+  background-color: #ac2;
+  height: 60%;
+  width: 60%;
+  word-wrap: break-word;
+}
+
+#foto1:checked ~  .principal .slide{
+
+
+  margin-left: 4%;
+ 
+}
+
+
+#foto2:checked ~ .principal .slide{
+
+  margin-left: -92%;
+}
+
+
+#foto3:checked ~ .principal .slide{
+
+  margin-left: -192%;
+}
+
+#foto4:checked ~ .principal .slide{
+
+  margin-left: -288%;
+}
+
+#foto5:checked ~ .principal .slide{
+
+  margin-left: -388%;
+}
+
+input[name="grupo"]{
+  display:none;
+
+}
+
+input[name="grupo"]:checked + label img{
+  opacity: 1;
+
+}
+
+/**************** FIM HOME ***********************/
+
+
+
+
+
+
+
+/*********************** Area ******************* Augusto 20/10*/  
+
+/*posiciona a área dos forms das páginas, exceto a da home*/
+#frmarea {
+  height: auto;
+  width: 100%;
+  margin: 0 2%; 
+  top: 45px;   
+  position: relative;
+  float: left;
+  background-color: #fff;
+}
+
+/*FIM*/
+
+/*Mensagem de erro*/
+#msg {
+  float: left;
+  position: absolute;
+  height: auto;
+  width: 200px;
+  margin-left: 45%;
+  text-decoration:none;
+}
+
+/*************** Fim ********************/
+
+
+#form-content {
+  float: left;
+  position: relative;
+  height: auto;
+  width: 100%;
+  letter-spacing: 3px;
+}
+
+#form-content > h3 {
+  color: #2c3e50;
+  position:relative;
+  left:30px;
+  text-transform:uppercase;  
+}
+
+#frma {
+  outline: 0;
+  width: 500px;
+  border: 0;
+  margin: 0 0 0px 0;
+  padding: 10px;
+  font-size: 14px;
+  position: relative;
+  background-color: #fff;
+}
+
+#frma label {
+  border: none;
+  background: transparent;
+  margin-bottom: 10px;
+  height: 45px;
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+#frma input[type="text"] {
+  width: 340px;
+  background: #fff;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+
+#frma input[type='text']:focus {
+  border-bottom: solid 2px #2980b9; 
+}
+
+
+/*Feito augusto 13/10*/
+#btnVoltar{
+  -moz-box-shadow: inset 0px 0px 0px 0px #385965;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #385965;
+  box-shadow: inset 0px 1px 0px 0px #385965;
+  background-color: #385965;
+  border: 1px solid #385965;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  outline: none;
+  position: absolute;
+  border-radius: 4px;
+
+  color:white;
+  position:relative;
+}
+
+
+/*fim augusto */
+#frma #btnNovo,
+#frma #btnPesquisar,
+#frmarea-crud .btArea,
+#frmaAssunto-crud .btArea {
+  -moz-box-shadow: inset 0px 0px 0px 0px #385965;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #385965;
+  box-shadow: inset 0px 1px 0px 0px #385965;
+  background-color: #385965;
+  border: 1px solid #385965;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 9px 18px;
+  text-decoration: none;
+  outline: none;
+  position: absolute;
+  border-radius: 4px;
+
+}
+
+
+#btnPesquisar{
+  
+  top:12px;
+  left:390px;
+}
+
+#btnNovo{
+  left:510px;
+  top:12px;
+}
+
+
+
+/*Verificar icone */
+#frma input[type='button'] {
+  background-image: url("img/loupe.png");
+}
+
+#frma #btnNovo {
+  right: 3.5%;
+  bottom: 18px;
+}
+
+/* Grade de itens da area */
+
+#area-content {
+  float: left;
+  position: relative;
+  width: 96%;
+  height: auto;
+  margin-top: -10px;
+
+
+}
+
+table {
+  font-family: "Roboto", sans-serif;     
+   border-collapse: collapse;
+  box-shadow: inset 0 0px 0 #fff;
+  font-size: 15px;
+  line-height: 20px;
+  margin: 50px auto;
+  text-align: left;
+  width: 85%;
+
+} 
+
+
+td {
+/*border-right: 1px solid #fff;*/
+ /* border-left: 1px solid #e8e8e8;
+  /*border-top: 1px solid #fff;*/
+  /*border-bottom: 1px solid #e8e8e8;*/
+  padding: 10px 15px;
+  position: relative;
+  transition: all 300ms;*/
+
+}
+
+tr:hover{
+  
+  background-color:#00BBD4;
+  
+}
+
+thead {
+  font-size: 14px;
+  color: #fff;
+  background-color:#385965;
+  pointer-events:none;
+  
+}
+
+
+#frmcrudar{
+
+  height: 700px;
+  width: 60%;
+  margin: 50px 2%; 
+  top:45px;  
+  left: 335px;
+  padding: 20px; 
+  position: relative;
+  float: left;
+  background-color: #fff;
+  border-radius:10px;
+
+  }
+
+
+td:first-child {
+  box-shadow: inset 0px 0 0 #fff;
+} 
+
+td:last-child {
+  /
+  border-right: 1px solid #e8e8e8;
+  /*box-shadow: inset -1px 0 0 #fff;*//**//**/
+} 
+
+
+
+
+.cmcodigo { width: 5px;  }
+.cmdescricao { width: 66%; }
+.cmdescricao1 { width: 32%; }
+.cmdescricao2 { width: 32%; }
+
+
+.adel,
+.aedit {
+  color: #385965;
+  text-decoration: none;
+}
+
+.adel:hover,
+.aedit:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/*Crud da area */
+
+
+#frmarea-crud input {
+   
+  float: left;
+  margin: 0px 50px;
+  top:150px;
+  left:60px;
+}
+
+
+#frmarea-crud h3{
+ 
+  text-transform:uppercase;
+  letter-spacing:8px;
+  top:40px;
+  left:150px;
+}
+
+#frmarea-crud input[type='button'] {
+    margin-left:480px;
+    position:absolute;
+    margin-top:340px;
+}
+#frmarea-crud input[type='submit'] {
+ margin-left:400px;
+ position:absolute;
+  margin-top:60px;
+}
+
+
+
+.label-default { 
+ 
+  margin: 70px 50px;
+  color: #385965;
+
+}
+
+.style-input-default {
+  width: 320px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  margin: 5px 1px 3px 0px;
+  border-bottom: 1px solid #ccc;
+}
+
+
+.style-input-default:focus {
+  margin: 5px 1px 3px 0px;
+  border-bottom: 1px solid #385965;
+  
+
+}
+/*Crud de assunto*/
+#frmaAssunto-crud input, #frmaAssunto-crud label , #frmarea-crud input, #frmarea-crud label  {
+  position: relative;
+} 
+
+#frmaAssunto-crud{
+  width:50%;
+  margin-left:12.5%;
+  position:relative;
+  float:left;
+  background-color:white;
+  height:500px;
+  margin-top:100px;
+
+}
+
+#frmaAssunto-crud label{
+  display:block;
+  padding:15px;
+  margin:0;
+}
+
+
+
+#frmaAssunto-crud select {
+
+  margin-left:13px;
+  padding: 8px 18px;
+}
+
+
+#frma select {
+  margin-left:13px;
+  padding: 8px 18px;
+  position:relative;
+}
+/* augusto 19/10*/
+
+#crudAssunto h3, #crudArea h3,#crudProf h3{
+  color:#385965;
+  position:relative;
+  font-family: "Roboto", sans-serif;
+  margin: 0 50px 20px 50px;
+}
+
+
+
+#frmaAssunto-crud input[type='submit'] {
+  position: relative;
+  margin-left:49%;
+  margin-top:25px;
+}
+
+
+
+/* Fim - Japa */
+/* Pagina de professores */
+.cmNome{
+	width:22%
+}
+.cmEmail{
+	width:33%;
+}
+.cmID{
+	width:6%;
+}
+.cmTipo{
+	width:5%;
+}
+
+
+
+
+.logoIndex{
+	float:left;
+	margin-left:30%;
+	margin-top:150px;
+
+}
+/* AUGUSTO 19/10*/
+#frmProf-crud input{
+	position:relative;
+	display:inline-block;
+	margin-left:4%;
+
+
+
+}
+#frmProf-crud label{
+	position:relative;
+	margin-left:40%;
+}
+#frmProf-crud input[type="radio"]{
+	display:inline;
+	margin:0;
+	padding:0;
+	width:50px;
+}
+#frmProf-crud .btArea{
+	position:relative;
+
+	margin-left:45%;
+	margin-top:30px;
+}
+
+
+
+.foottxt ul li a{
+  float: left;
+  display: inline-block;
+    margin:3px;
+
+    position:relative;
+    top:530px;
+    left:450px;
+    color:#00BBD4;
+  text-decoration:none;
+
+}
