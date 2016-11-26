@@ -4,16 +4,14 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="../img/logopag.png">
 		<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 		<meta html lang="pt-br">
-		<meta charset='UTF-8'>
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 		<title>Estrutura - PI II</title>
 	</head>
 	
 	<body>
 		
 		<?php // Cabeçalho
-
 			include "../db/menuCruds.php";
-
 		?>
 
 		<div id="frmarea">
@@ -38,12 +36,11 @@
 								//$butt recebe o botão btnVoltar, botão cujo papel é dar refresh na pagina
 								echo $butt;
 							}else{
-								echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar descrição ...">';
+								echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar descri&ccedil;&atilde;o...">';
 							
 							}
 						}else{
-							echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar descrição ...">';
-							
+							echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar descri&ccedil;&atilde;o...">';	
 						}
 					?>
 					<input type="submit" id="btnPesquisar" value="Pesquisar"/>
@@ -57,11 +54,11 @@
 				<table>
 					<thead>
 						<tr>
-							<td class="cmcodigo"><strong>Codigo</strong></td>
+							<td class="cmcodigo"><strong>C&oacute;digo</strong></td>
 							<td class="cmdescricao"><strong>Assunto</strong></td>
-							<td class="cmdescricao"><strong>Area</strong></td>
-							<td class="cmdescricao"><strong>Qtd. questões</strong></td>
-							<td colspan="2"><strong>Ações</strong></td>
+							<td class="cmdescricao"><strong>&Aacute;rea</strong></td>
+							<td class="cmdescricao"><strong>Qtd. quest&otilde;es</strong></td>
+							<td colspan="2"><strong>A&ccedil;&otilde;es</strong></td>
 						</tr>
 					</thead>
 					<tfoot>
@@ -80,14 +77,14 @@
 										<td class='cmcodigo'>{$campo}</td>
 										<td class='cmdescricao1'>".$valor['assdescricao']."</td>
 										<td class='cmdescricao2'>".$valor['ardescricao']."</td>
-										<td class='cmdescricao2'><a href='../questao/?pesq={$valor['qtd']}'>".$valor['qtd']."</a></td>
+										<td class='cmdescricao2'><a href='../questao/?pesq={$valor['assdescricao']}'>".$valor['qtd']."</a></td>
 										<td><a href='?dcod={$campo}' class='adel'>Deletar</a></td>
 										<td><a href='?ecod={$campo}' class='aedit'>Editar</a></td>
 									</tr>";
 								}
 							}else{
 								echo " 	<tr>
-											<td colspan='5'><center>Nenhum resultado encontrado</center></td>
+											<td colspan='5'><center>Nenhum resultado encontrado :(</center></td>
 										</tr>";							
 							
 							}

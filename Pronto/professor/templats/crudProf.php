@@ -4,7 +4,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="../img/logopag.png">
 		<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 		<meta html lang="pt-br">
-		<meta charset='UTF-8'>
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 		<title>SENAQUIZ - CADASTRO DE PROFESSOR</title>
 	</head>
 	
@@ -30,7 +30,7 @@
 									<label class="label-default">Email:</label>
 									<input type="email" name="txtEmailProf" id="txtEmailProf"  class="style-input-default" required="required" value="'.$result['email'].'" />
 									
-									<label class="label-default">ID:</label>
+									<label class="label-default">ID Professor:</label>
 									<input type="text" name="txtIDProf" id="txtIDProf"  class="style-input-default" maxlength="6" required="required" value="'.$result['idSenac'].'" />
 									
 									<label class="label-default">Tipo:</label>';
@@ -64,13 +64,14 @@
 									<label class="label-default">Confirmar senha:</label>
 									<input type="password" name="txtConfSenhaProf" id="txtConfSenhaProf"  class="style-input-default" placeholder="*****" required="required" />
 									
-									<label class="label-default">ID:</label>
+									<label class="label-default">ID Professor:</label>
 									<input type="text" name="txtIDProf" id="txtIDProf"  class="style-input-default" placeholder="666666" maxlength="6" required="required" value="'.@$id.'" />
 									
 									<label class="label-default">Tipo:</label>
 									<input type="radio" name="rdTipo" value="P"  class="style-input-default" checked />Professor
 									<input type="radio" name="rdTipo" value="A"  class="style-input-default" />Admin
 									<input type="submit" name="btnInclude" class="btArea" value="Enviar" />
+
 									<a href="index.php"><input type="button" name="btnVolt" class="btArea" value="Voltar" /></a>
 								</form>';
 						}

@@ -3,7 +3,7 @@
 	<head>
 		<link rel="icon" type="image/png" sizes="16x16" href="../img/logopag.png">
 		<link rel="stylesheet" type="text/css" href="../css/estilo.css">
-		<meta charset="utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 		<title>Estrutura - PI II</title>
 	</head>
 	
@@ -15,7 +15,8 @@
 		<div id="frmarea">
 			<section id="form-content">
 			
-				<h3>Cadastro de professores</h3><?php if(isset($msg))echo$msg;?>
+				<h3>Cadastro de professores</h3>
+				<?php if(isset($msg))echo$msg;?>
 
 				<!-- Campo de pesquisa -->	
 				<form id="frma" action="" method="get">
@@ -26,10 +27,10 @@
 								echo "<input type='text' name='pesq' id='pesq' value='".$pesquisa."'>";
 								echo $butt;
 							}else{
-								echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar descrição ...">';
+								echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar nome ...">';
 							}
 						}else{
-							echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar descrição ...">';	
+							echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar nome ...">';	
 						}
 					?>
 					<input type="submit" id="btnPesquisar" value="Pesquisar"/>
@@ -47,14 +48,14 @@
 				<table>
 					<thead>
 						<tr>
-							<td class="cmcodigo"><strong>Codigo</strong></td>
+							<td class="cmcodigo"><strong>C&oacute;digo</strong></td>
 							<td class="cmNome"><strong>Nome</strong></td>
 							<td class="cmEmail"><strong>Email</strong></td>
 							<td class="cmID"><strong>ID</strong></td>
 							<td class="cmTipo"><strong>Tipo</strong></td>
 						<?php
 							if($_SESSION['tipoProfessor'] == 'A'){
-								echo '<td colspan="2"><strong>AÃ§Ãµes</strong></td>';
+								echo '<td colspan="2"><strong>A&ccedil;&otilde;es</strong></td>';
 							}
 						?>
 						</tr>
@@ -84,10 +85,9 @@
 								echo"</tr>";
 							}
 						}else{
-								echo " 	<tr>
-											<td colspan='5'><center>Nenhum resultado encontrado</center></td>
-										</tr>";							
-							
+							echo " 	<tr>
+										<td colspan='6'><center>Nenhum resultado encontrado :(</center></td>
+									</tr>";							
 							}
 						?>
 					</tbody>

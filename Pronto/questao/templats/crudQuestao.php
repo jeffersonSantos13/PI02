@@ -6,16 +6,14 @@
 		<link rel="stylesheet" type="text/css" href="../css/questao.css">
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 		<meta html lang="pt-br">
-		<meta charset='utf-8'>
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 		<title>Estrutura - PI II</title>
 	</head>
 	
 	<body>
 		
 		<?php // Cabeçalho
-
 			include "../db/menuCruds.php";
-
 		?>
 
 		<div id="frmarea">
@@ -40,9 +38,10 @@
 										echo "<img width='25%' height='25%' src='data:image/jpeg;base64,".base64_encode($result['bitmapImagem'])."' />" 
 									?>
 								</output>
+								<input type="checkbox" name="chkNoImg" value="Sem imagem" />
 							</div>
 							<br />
-							<label>Área</label>
+							<label>&Aacute;rea</label>
 							<select class="select-default" id='optarea'> 
 							<?php 
 								echo " <option value='". $arearesult. "'>". $arearesulta ."</option> " ;
@@ -55,7 +54,7 @@
 							<label>Assunto</label>
 							<select class="select-default" name="optAssunto" id='optAssunto'>
 							<?php
-								echo " <option value='". $result['codAssunto']. "'>".utf8_encode($result['descricao'])."</option> " ;	
+								echo " <option value='". $result['codAssunto']. "'>".$result['descricao']."</option> " ;	
 								// foreach ($assunto as $codigo => $value) {
 								//  	echo " <option value='$codigo'>".$value."</option> ";	
 								// }
@@ -63,36 +62,32 @@
 							</select>	
 
 							<label>Questão</label>	
-							<textarea name="edtQuestao"><?php echo utf8_encode($result['textoQuestao']) ?></textarea>
+							<textarea name="edtQuestao"><?php echo $result['textoQuestao'] ?></textarea>
 
 							<input type="radio" name="dificult" value="F" <?php if($result['dificuldade'] == 'F')echo "checked" ?> />Facil
 							<input type="radio" name="dificult" value="M" <?php if($result['dificuldade'] == 'M')echo "checked" ?> />Médio
 							<input type="radio" name="dificult" value="D" <?php if($result['dificuldade'] == 'D')echo "checked" ?> />Dificíl
 
-							<table id="alternativa">
-								<thead>
-									<tr>
-										<td colspan="3">Alternativas</td>
-										<td>Correta</td>
-									</tr>
-								</thead>
-								<tbody>
-								<?php 
-									$i = 1;
-									foreach ($alteranativas as $campo => $value) {	
-										// Verifica qual alternativa está correta
-										if ($value['correta'] == 1) $correta = 'checked'; else $correta = ''; 
-										echo "
-											<tr>
-												<td colspan='3'><input type='text' name='txtAlt".$i."' value='{$value['textoAlternativa']}' /></td>
-												<td><input type='radio' name='rdAlt' value='".$i."' $correta /></td>
-											</tr>";
-										$i++;
-									}
-								?>
-								</tbody>
-							</table>
-							<input type="submit" value="Atualizar" name="btnUpdate"> 
+							<?php 
+								$i = 1;
+								foreach ($alteranativas as $campo => $value) {	
+									// Verifica qual alternativa está correta
+									if ($value['correta'] == 1) $correta = 'checked'; else $correta = ''; 
+									echo "
+										<input type='text' name='txtAlt".$i."' value='{$value['textoAlternativa']}' />
+										<input type='radio' name='rdAlt' value='".$i."' $correta />
+										";
+									$i++;
+								}
+							?>
+							
+							<?php
+								if(!isset($_GET['view'])){
+							?>
+								<input type="submit" value="Atualizar" name="btnUpdate"> 
+							<?php 
+								}
+							 ?>
 						</form>	
 					<?php
 				 	} else {
@@ -126,32 +121,19 @@
 								<input type="radio" name="dificult" value="M" checked />Medio
 								<input type="radio" name="dificult" value="D" />Dificil
 
-								<table>
-									<thead>
-										<tr>
-											<td colspan="3">Alternativas</td>
-											<td>Correta</td>
-										</tr>
-									</thead>
-									<tbody>
-										<tr>
-											<td colspan="3"><input type="text" id="txtAlt1" name="txtAlt1" /></td>
-											<td><input type="radio" name="rdAlt" value="1" checked /></td>
-										</tr>
-										<tr>
-											<td colspan="3"><input type="text" id="txtAlt2" name="txtAlt2" /></td>
-											<td><input type="radio" name="rdAlt" value="2"/></td>
-										</tr>
-										<tr>
-											<td colspan="3"><input type="text" id="txtAlt3" name="txtAlt3" /></td>
-											<td><input type="radio" name="rdAlt" value="3"/></td>
-										</tr>
-										<tr>
-											<td colspan="3"> <input type="text" id="txtAlt4" name="txtAlt4" /></td>
-											<td><input type="radio" name="rdAlt" value="4"/></td>
-										</tr>
-									</tbody>
-								</table>
+								<!-- Alternativas -->
+								<input type="text" id="txtAlt1" name="txtAlt1" />
+								<input type="radio" name="rdAlt" value="1" checked />
+
+								<input type="text" id="txtAlt2" name="txtAlt2" /></td>
+								<input type="radio" name="rdAlt" value="2"/>
+
+								<input type="text" id="txtAlt3" name="txtAlt3" />
+								<td><input type="radio" name="rdAlt" value="3"/></td>
+
+								<input type="text" id="txtAlt4" name="txtAlt4" />
+								<td><input type="radio" name="rdAlt" value="4"/></td>
+
 								<input type="submit" value="Inserir" name="btnQuestao"> 
 							</form>	
 				 	<?php 

@@ -4,7 +4,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="../img/logopag.png">
 		<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 		<meta html lang="pt-br">
-		<meta charset='UTF-8'>
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 		<title>Estrutura - PI II</title>
 	</head>
 	
@@ -23,7 +23,7 @@
 			</div>
 
 			<section id="form-content">
-				<h3>Cadastro da área</h3>
+				<h3>Cadastro da &aacute;rea</h3>
 
 				<!-- Campo de pesquisa -->	
 				<form id="frma" action="" method="get">
@@ -34,10 +34,10 @@
 								echo "<input type='text' name='pesq' id='pesq' value='".$pesquisa."'>";
 								echo $butt;
 							}else{
-								echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar descrição ...">';
+								echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar descri&ccedil;&atilde;o...">';
 							}
 						}else{
-							echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar descrição ...">';	
+							echo '<input type="text" name="pesq" id="pesq" placeholder="Pesquisar descri&ccedil;&atilde;o...">';	
 						}
 					?>
 					<input type="submit" id="btnPesquisar" value="Pesquisar"/>
@@ -52,12 +52,12 @@
 				<table>
 					<thead>
 						<tr>
-							<td class="cmcodigo"><strong>Código</strong></td>
-							<td class="cmdescricao"><strong>Área</strong></td>
+							<td class="cmcodigo"><strong>C&oacute;digo</strong></td>
+							<td class="cmdescricao"><strong>&Aacute;rea</strong></td>
 							<td class="cmdescricao"><strong>Qtd. Assuntos</strong></td>
 							<?php
 								if($_SESSION['tipoProfessor'] == 'A'){
-									echo'<td colspan="2"><strong>Ações</strong></td>';
+									echo'<td colspan="2"><strong>A&ccedil;&otilde;es</strong></td>';
 								}
 							?>
 						</tr>
@@ -86,7 +86,7 @@
 							}
 						}else{
 							echo " 	<tr>
-										<td colspan='5'><center> :( Nenhum resultado encontrado.</center></td>
+										<td colspan='5'><center> Nenhum resultado encontrado :( </center></td>
 									</tr>";
 							}
 						?>

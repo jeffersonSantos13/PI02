@@ -1,13 +1,15 @@
 <?php
 // Crud Questão
-
 ini_set ('odbc.defaultlrl', 9000000);//muda configuração do PHP para trabalhar com imagens no DB
 
 require('../acesso.php');
 require('../db/db.php');
-include ("../db/msg.php");
+
 $msg = '';
 $result = '';
+
+include ("../db/msg.php");
+
 
 // ----------------------------------------------------------------------PAGINA ----------------------------------------------------------------------------
 if(isset($_GET['pesq'])){
@@ -85,8 +87,8 @@ if(isset($_GET['pesq'])) {
 	if (!empty($_GET['pesq'])) {
 			$pesquisa = $_GET['pesq'];
 				
-			$query = odbc_exec($db, $queryQuestao . " WHERE qs.textoQuestao LIKE '%$pesquisa%' AND ativo = 1" .$orderpag);
-			$butt = "<button id='btnVoltar' name='btnVoltar'><a href='index.php'>Voltar</a></button>";
+			$query = odbc_exec($db, $queryQuestao . " WHERE (qs.textoQuestao LIKE '%$pesquisa%' AND ativo = 1) OR (ass.descricao LIKE '%$pesquisa%' AND ativo = 1)" .$orderpag);
+			$butt = "<button id='btnVoltar' ><a href='index.php?pesq'>Voltar</a></button>";
 	} else {
 		$query = odbc_exec($db, $queryQuestao ."WHERE ativo = 1". $orderpag);
 	}
@@ -98,11 +100,11 @@ if(isset($_GET['pesq'])) {
 while ($result = odbc_fetch_array($query)) {
 	$questao[$result['codQuestao']]['textoQuestao'] = $result['textoQuestao'];	
 	$questao[$result['codQuestao']]['descricao'] = $result['descricao'];
-	$questao[$result['codQuestao']]['nome'] = utf8_encode($result['nome']);
+	$questao[$result['codQuestao']]['nome'] = $result['nome'];
 	$questao[$result['codQuestao']]['codImagem'] = $result['codImagem'];
 	$questao[$result['codQuestao']]['codProfessor'] = $result['codProfessor'];
 	$questao[$result['codQuestao']]['bitmapImagem'] = $result['bitmapImagem'];
-	$questao[$result['codQuestao']]['ativo'] = utf8_encode($result['ativo']);
+	$questao[$result['codQuestao']]['ativo'] = $result['ativo'];
 	$questao[$result['codQuestao']]['dificult'] = $result['dificult'];
 }
 
@@ -140,7 +142,7 @@ if (isset($_POST['btnNovo'])) {
 // INSERT	
 if (isset($_POST['btnQuestao'])) {
 
-	$texto = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['edtQuestao']);
+	$texto = $_POST['edtQuestao'];
 	$assunto = intval($_POST['optAssunto']);
 	$dificult = $_POST['dificult'];
 
@@ -196,13 +198,13 @@ if(isset($_GET['ecod'])) {
 		$areaq = odbc_exec($db, "SELECT codArea, descricao FROM Area");
 
 		while ($result = odbc_fetch_array($areaq)) {
-			$area[$result['codArea']] = utf8_encode($result['descricao']);
+			$area[$result['codArea']] = $result['descricao'];
 		}	
 							
 		$assuntoq = odbc_exec($db, "SELECT codAssunto, codArea, descricao FROM Assunto");
 
 		while ($result = odbc_fetch_array($assuntoq)) {
-			$assunto[$result['codAssunto']] = utf8_encode($result['descricao']);
+			$assunto[$result['codAssunto']] = $result['descricao'];
 		}
 	
 		// Verifica a área da questão
@@ -223,8 +225,8 @@ if(isset($_GET['ecod'])) {
 		// Verifica as alternativas da questao
 		$alt = odbc_exec($db, $queryAlternativa . " WHERE codQuestao = " . $_GET['ecod']);
 		while ($altresult = odbc_fetch_array($alt)) {
-			$alteranativas[$altresult['codAlternativa']]['textoAlternativa'] = utf8_encode($altresult['textoAlternativa']);
-			$alteranativas[$altresult['codAlternativa']]['correta'] = utf8_encode($altresult['correta']);
+			$alteranativas[$altresult['codAlternativa']]['textoAlternativa'] = $altresult['textoAlternativa'];
+			$alteranativas[$altresult['codAlternativa']]['correta'] = $altresult['correta'];
 		 } 
 
 		// ----------------------------------------------- Realiza o UPDATE -------------------------------------------------
@@ -233,7 +235,7 @@ if(isset($_GET['ecod'])) {
 	
 		if (isset($msg)) {
 			if (isset($_POST['btnUpdate'])) {
-				$texto = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['edtQuestao']);
+				$texto = $_POST['edtQuestao'];
 				$assunto = intval($_POST['optAssunto']);
 				$dificult = $_POST['dificult'];
 
@@ -291,7 +293,6 @@ if(isset($_GET['ecod'])) {
 }
 
 // -------------------------------------------------------------------------- FIM UPDATE-------------------------------------------------------------------
-utf8_encode($msg);
 if(isset($_POST['btnNovo']) || isset($_POST['btnQuestao']) || isset($_GET['ecod'])) {
 	include_once("templats/crudQuestao.php");
 } else {

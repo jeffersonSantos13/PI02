@@ -1,4 +1,7 @@
 <?php
+
+ini_set('default_charset', 'iso8859-1');	
+
 require('../acesso.php');
 require('../db/db.php');
 
@@ -58,7 +61,7 @@ if(isset($_GET['pesq'])) {
 										OFFSET $limite-10 ROWS  
 										FETCH NEXT 10 ROWS ONLY"); 
 			//Botão para voltar após fazer pesquisa							
-			$butt = "<button id='btnVoltar' name='btnVoltar'><a href='index.php'>Voltar</a></button>";
+			$butt = "<button id='btnVoltar' ><a href='index.php?pesq'>Voltar</a></button>";
 	} else {
 		$query = odbc_exec($db, "SELECT 
 										ass.codAssunto, 
@@ -118,14 +121,17 @@ $queryArea = odbc_exec($db, "SELECT
 								descricao
 							FROM
 								Area");
+
 while($resultArea = odbc_fetch_array($queryArea)){
-	$areas[$resultArea['codArea']] = utf8_encode($resultArea['descricao']);
+	$areas[$resultArea['codArea']] = $resultArea['descricao'];
 }
+
 $num = odbc_num_rows($query);
+
 while($result = odbc_fetch_array($query)){
-	$assuntos[$result['codAssunto']]['assdescricao'] = utf8_encode($result['assdescricao']);
+	$assuntos[$result['codAssunto']]['assdescricao'] = $result['assdescricao'];
 	$assuntos[$result['codAssunto']]['codArea'] = $result['codArea'];
-	$assuntos[$result['codAssunto']]['ardescricao'] = utf8_encode($result['ardescricao']);
+	$assuntos[$result['codAssunto']]['ardescricao'] = $result['ardescricao'];
 	$assuntos[$result['codAssunto']]['qtd'] = $result['qtd'];
 }
 
@@ -137,21 +143,20 @@ if(isset($_GET['dcod'])){
 		if(!odbc_exec($db, "DELETE FROM 
 								Assunto
 							WHERE 
-								codAssunto =".$_GET['dcod'])){
-			$msg = "Não foi possível deletar.";
+								codAssunto = ".$_GET['dcod'])){
+			$msg .= "Não foi possível deletar.";
 		}else{
 			header("Location: index.php?dd");
 		}
 		
 	}else{
-		$msg = "ERRO : ID não valido";
+		$msg .= "ERRO : ID não valido";
 	}
 }
 
 // -------------------------------------------------------------------------------INSERT ------------------------------------------------------------------------
 if(isset($_POST['btnInclude'])) {
 	$assunto = $_POST['txtInclude'];
-	$assunto = preg_replace("/[^a-zA-Z0-9 -]/",'',@$_POST['txtInclude']);
 	$codArea = intval($_POST['codArea']);
 
 	$queryCod = odbc_exec($db,"SELECT codArea FROM Area WHERE codArea = '$codArea'");
@@ -204,7 +209,6 @@ if(isset($_GET['ecod']) && is_numeric($_GET['ecod'])){
 if(isset($_POST['btnAssuntoUpdate']  )){
 	if(is_numeric($_GET['ecod'])){
 		$assunto = $_POST['txtAssuntoUpdate'];
-		$assunto = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['txtAssuntoUpdate']);
 		$codArea = intval($_POST['codArea']);
 		
 		$prepare = odbc_prepare($db, "UPDATE
@@ -222,8 +226,6 @@ if(isset($_POST['btnAssuntoUpdate']  )){
 	}
 }
 
-// -------------------------------------------------------------------------- FIM UPDATE-------------------------------------------------------------------
-$msg = utf8_encode($msg);
 if(isset($_POST['btnNovo']) || isset($_GET['ecod']) ){
 	include_once("templats/crudAssunto.php");
 } else {

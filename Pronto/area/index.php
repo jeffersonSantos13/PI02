@@ -1,4 +1,8 @@
 <?php
+
+ini_set('default_charset', 'iso8859-1');	
+
+
 require('../acesso.php');
 require('../db/db.php');
 
@@ -57,7 +61,7 @@ if(isset($_GET['pesq'])) {
 								OFFSET $limite - 10 ROWS  
 								FETCH NEXT 10 ROWS ONLY" ); 
 
-			$butt = "<button id='btnVoltar' name='btnVoltar'><a href='index.php'>Voltar</a></button>";
+			$butt = "<button id='btnVoltar'><a href='index.php?pesq'>Voltar</a></button>";
 
 	} else {
 		$query = odbc_exec($db, "SELECT
@@ -103,8 +107,8 @@ if(isset($_GET['pesq'])) {
 
 $num = odbc_num_rows($query);
 while($result = odbc_fetch_array($query)){
-	$areas[$result['codArea']]['descricao'] = utf8_encode($result['descricao']);
-	$areas[$result['codArea']]['AssuntoArea'] = utf8_encode($result['AssuntoArea']);
+	$areas[$result['codArea']]['descricao'] = $result['descricao'];
+	$areas[$result['codArea']]['AssuntoArea'] = $result['AssuntoArea'];
 }
 
 //--------------------------------------------------------------------DELETE--------------------------------------------------------------------
@@ -137,7 +141,6 @@ if(isset($_GET['dcod'])){
 	}
 }
 
-//-------------------------------------------------------------------- COMEÇO DOS CRUDS--------------------------------------------------------------------
 // --------------------------------------------------------------------INSERT--------------------------------------------------------------------
 if(isset($_POST['btnInclude'])) {
 	$area = $_POST['txtInclude'];
@@ -183,7 +186,6 @@ if(isset($_GET['ecod']) && is_numeric($_GET['ecod'])){
 if(isset($_POST['btnAlterar']  )){
 	if(is_numeric($_GET['ecod'])){
 		$area = $_POST['txtDescricao'];
-		$area = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['txtDescricao']);
 		if(!empty($area)){
 			$prepare = odbc_prepare($db, "UPDATE 
 											Area 

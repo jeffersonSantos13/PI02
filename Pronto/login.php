@@ -3,8 +3,8 @@
 	<head>
 		<link rel="stylesheet" type="text/css" href="css/login.css">
 		<meta html lang="pt-br">
-		<meta charset='UTF-8'>
-		<title>Estrutura - PI II</title>
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">		
+	<title>Estrutura - PI II</title>
 	</head>
 	
 	<body>

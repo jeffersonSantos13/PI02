@@ -106,60 +106,78 @@ header {
 
 /****************** HOME *************************/
 
-#section {
-  height: 500px;
-  width: 90%;
-  margin: 50px auto; 
-  margin-left: 5%;
+#section{
+
+ height: 500px;
+  width: 70%;
+  margin: 50px 2%; 
+  top:90px;  
+  left: 190px;
   padding: 20px; 
-  position: absolute;
+  position: relative;
   float: left;
   background-color: #fff;
+  border-radius:50px;
+
 }
 
-#container {
-  position: absolute;
-  width: 480px;
-  height: 320px;
-  margin: 3% 4%;
-  left: 2%;
+
+      
+#container{
+position: absolute;
+
+width: 480px;
+height: 320px;
+margin: 210px auto;
+left: 18%;
+top: -25%;
+
+
 }
 
-.principal {
+.principal{
+  
   width: 500px;
   height: auto;
   overflow: hidden;
+  position:absolute;
+  top:150px;
 }
 
-.slide {
-  display: flex;
+.slide{
+  display:flex;
+
   width: 600%;
   height: 10%;
   transition: all .8s;
+ 
 }
 
+
 label img{
+
   position: relative;
-  top: 160%;
+  top: 560px;
+  left: -10px;
   width: 96px;
-  height: auto;
-  cursor: pointer;
+   cursor: pointer;
   float: left;
   opacity: 0.3;
   transition: all .4s;
+  
 }
 
-#textos {
-  position: relative;
-  left: 45%;
+#textos{
+ 
+  position: absolute;
+  left: 590px;
   top: 28%;
-  color: #385965;
+  color:#385965;
   font-size:30px;
   height: 60%;
   width: 46%;
   word-wrap: break-word;
   letter-spacing:3px;
-  float: left;
 }
 
 #textos a{
@@ -171,35 +189,46 @@ label img{
 }
 
 #foto1:checked ~  .principal .slide{
+
   margin-left: 4%;
+  
 }
 
+
 #foto2:checked ~ .principal .slide{
+
   margin-left: -92%;
 }
 
+
 #foto3:checked ~ .principal .slide{
+
   margin-left: -192%;
 }
 
 #foto4:checked ~ .principal .slide{
+
   margin-left: -288%;
 }
 
 #foto5:checked ~ .principal .slide{
+
   margin-left: -388%;
 }
 
 input[name="grupo"]{
   display:none;
+
 }
 
 input[name="grupo"]:checked + label img{
   opacity: 1;
+
 }
 
 .invisivel{
   display:none;
+  
 }
 
 /*Mensagem de erro*/
@@ -242,8 +271,8 @@ input[name="grupo"]:checked + label img{
   background: transparent;
   margin-bottom: 10px;
   height: 45px;
-	font-size: 16px;
-	padding-right: 10px;
+  font-size: 16px;
+  padding-right: 10px;
 }
 
 #frma input[type="text"] {
@@ -264,7 +293,7 @@ input[name="grupo"]:checked + label img{
 #frmarea-crud .btArea,
 #frmaAssunto-crud .btArea
 {
-	-moz-box-shadow: inset 0px 0px 0px 0px #385965;
+  -moz-box-shadow: inset 0px 0px 0px 0px #385965;
   -webkit-box-shadow: inset 0px 0px 0px 0px #385965;
   box-shadow: inset 0px 1px 0px 0px #385965;
   background-color: #385965;
@@ -275,7 +304,7 @@ input[name="grupo"]:checked + label img{
   font-size: 14px;
   padding: 8px 18px;
   text-decoration: none;
-	outline: none;
+  outline: none;
   position: absolute;
   border-radius: 4px;
 }
@@ -560,8 +589,6 @@ thead {
 }
 
 /*
-
-
 /*Feito augusto 13/10*/
 #btnVoltar{
   -moz-box-shadow: inset 0px 0px 0px 0px #385965;
@@ -582,25 +609,25 @@ thead {
   margin-right:5px;
 }
 #btnVoltar a {
-	 color:white;
-	text-decoration:none;
+   color:white;
+  text-decoration:none;
 }
 
 /* Paginação */
 
 #tablet li {
-	display: inline;
+  display: inline;
 }
 #tablet li a {
-	color: white;
-	text-decoration:none;
-	padding: 5px 10px;
-	background-color: #385965;
+  color: white;
+  text-decoration:none;
+  padding: 5px 10px;
+  background-color: #385965;
 }
 #tablet li a:hover{
-	color:white;
-	text-decoration:none;
-	background-color: #444;
+  color:white;
+  text-decoration:none;
+  background-color: #444;
 }
 .cmdescricao a {color:black;}
 .cmdescricao a:hover {text-decoration:underline;}

@@ -4,7 +4,7 @@
 	// Iniciar a sessão
 	session_start();
 	
-	$_SESSION['codProfessor'] = 1;
+	$_SESSION['codProfessor'] = 123;
 	$_SESSION['tipoProfessor'] = 'A';
 
 	// Quando colocado no servidor, deixar como false

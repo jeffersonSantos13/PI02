@@ -1,9 +1,14 @@
 <?php
+
+ini_set('default_charset', 'iso8859-1');	
+
 require("../acesso.php");
 require("../db/db.php");
-$msg = '';
-include ("../db/msg.php");
+
 $result = ' ';
+
+include ("../db/msg.php");
+
 // ----------------------------------------------------------------------PAGINA ----------------------------------------------------------------------------
 if(isset($_GET['pesq'])){
 	$pesquisa = $_GET['pesq'];
@@ -11,7 +16,7 @@ if(isset($_GET['pesq'])){
 								codProfessor	
 							FROM
 								Professor
-							WHERE descricao LIKE '%$pesquisa%'
+							WHERE nome LIKE '%$pesquisa%'
 						");
 }else{
 	$query = odbc_exec($db, "SELECT 
@@ -29,8 +34,7 @@ $limite = (10 * $pagina);
 // ------------------------------------------------- (PESQUISA)SELECT GRADE PROF -------------------------------
 if(isset($_GET['pesq'])){
 	if(!empty($_GET['pesq'])){
-		// $campo = $_POST['slcPesquisa'];
-		$pesquisa = $_POST['txtPesquisa'];
+		$pesquisa = $_GET['pesq'];
 
 		$query = odbc_exec($db, "SELECT codProfessor,
 										nome,	
@@ -40,12 +44,12 @@ if(isset($_GET['pesq'])){
 										tipo
 									FROM
 										Professor
-									WHERE nome LIKE '%$pesquisa%' or email LIKE '%$pesquisa%'
+									WHERE nome LIKE '%$pesquisa%'
 									ORDER BY codProfessor
 											OFFSET $limite-10 ROWS  
 											FETCH NEXT 10 ROWS ONLY");
 
-		$butt = "<button id='btnVoltar' name='btnVoltar'><a href='index.php'>Voltar</a></button>";
+		$butt = "<button id='btnVoltar' ><a href='index.php?pesq'>Voltar</a></button>";
 	}else{
 	$query = odbc_exec($db, "SELECT codProfessor,
 								nome,	
@@ -72,11 +76,13 @@ if(isset($_GET['pesq'])){
 							OFFSET $limite-10 ROWS  
 							FETCH NEXT 10 ROWS ONLY");
 }	
-$num = odbc_num_rows($query);							
+
+$num = odbc_num_rows($query);		
+// Professor			
 while($result = odbc_fetch_array($query)){
-	$prof[$result['codProfessor']]['nome'] = utf8_encode($result['nome']);	
-	$prof[$result['codProfessor']]['email'] = utf8_encode($result['email']);	
-	$prof[$result['codProfessor']]['senha'] = utf8_encode($result['senha']);	
+	$prof[$result['codProfessor']]['nome'] = $result['nome'];	
+	$prof[$result['codProfessor']]['email'] = $result['email'];	
+	$prof[$result['codProfessor']]['senha'] = $result['senha'];	
 	$prof[$result['codProfessor']]['idSenac'] = $result['idSenac'];	
 	$prof[$result['codProfessor']]['tipo'] = $result['tipo'];	
 }
@@ -113,24 +119,24 @@ if(isset($_GET['dcod'])){
 
 if(isset($_POST['btnInclude'])) {
 
-	$nome = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['txtNomeProf']);
+	$nome = $_POST['txtNomeProf'];
 	$email = $_POST['txtEmailProf'];
 	$senha = $_POST['txtSenhaProf'];
 	$Csenha = $_POST['txtConfSenhaProf'];
 	$id = $_POST['txtIDProf'];
-	$tipo = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['rdTipo']);
+	$tipo = $_POST['rdTipo'];
 	
 	//Verifica se os dados entrados estão corretos
 	$selectEmail = odbc_exec($db, "SELECT email FROM Professor WHERE email = '$email'");
 	$selectid = odbc_exec($db, "SELECT idSenac FROM Professor WHERE idSenac = '$id'");
 	
-	if(odbc_num_rows($selectEmail) > 0)@$msg .= "Email já cadastrado <br>";	
-	if(odbc_num_rows($selectod) > 0)@$msg .= "ID já cadastrado <br>";	
-	if(!is_numeric($id))@$msg .= "ID inserido não é numerico <br>";
-	if(strlen($id) <> 6)@$msg .= "ID inserido não contem exatos 6 digitos <br>";
+	if(odbc_num_rows($selectEmail) > 0)@$msg .= "Email j&aacute; cadastrado <br>";	
+	if(odbc_num_rows($selectid) > 0)@$msg .= "ID j&aacute; cadastrado <br>";	
+	if(!is_numeric($id))@$msg .= "ID inserido n&atilde;o é numerico <br>";
+	if(strlen($id) <> 6)@$msg .= "ID inserido n&atilde;o contem exatos 6 digitos <br>";
 	if($tipo <> 'A' && $tipo <> 'P')@$msg .= "Tipo inserido não é valido <br>";
-	if (!filter_var($email, FILTER_VALIDATE_EMAIL))@$msg .= "Email não é valido <br>";
-	if ($senha <> $Csenha) @$msg.= "As senhas não conferem <br>";
+	if (!filter_var($email, FILTER_VALIDATE_EMAIL))@$msg .= "Email n&atilde;o é valido <br>";
+	if ($senha <> $Csenha) @$msg.= "As senhas n&atilde;o conferem <br>";
 	
 	// Verifica se algum erro foi encontrado para então fazer a inserção
 	if(!isset($msg)){
@@ -168,22 +174,22 @@ if(isset($_GET['ecod'])){
 		$result = odbc_fetch_array($query);
 	}
 	if(isset($_POST['btnUpdate'])){
-		$nome = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['txtNomeProf']);
+		$nome = $_POST['txtNomeProf'];
 		$email = $_POST['txtEmailProf'];
 		$senha = $_POST['txtSenhaProf'];
 		$id = $_POST['txtIDProf'];
-		$tipo = preg_replace("/[^a-zA-Z0-9 -]/",'',$_POST['rdTipo']);
+		$tipo = $_POST['rdTipo'];
 		//Verifica se os dados entrados estão corretos
 		
-		$selectEmail = odbc_exec($db, "SELECT email FROM Professor WHERE email = '$email'");
-		$selectid = odbc_exec($db, "SELECT idSenac FROM Professor WHERE idSenac = '$id'");
+		$selectEmail = odbc_exec($db, "SELECT email FROM Professor WHERE email = '$email' AND codProfessor <> ".$_GET['ecod']."");
+		$selectid = odbc_exec($db, "SELECT idSenac FROM Professor WHERE idSenac = '$id' AND codProfessor <> ".$_GET['ecod']."");
 
-		if(odbc_num_rows($selectEmail) > 0)@$msg .= "Email já cadastrado <br>";	
-		if(odbc_num_rows($selectod) > 0)@$msg .= "ID já cadastrado <br>";	
-		if(!is_numeric($id))@$msg .= "ID inserido não é numerico <br>";
-		if(strlen($id) <> 6)@$msg .= "ID inserido não contem exatos 6 digitos <br>";
-		if($tipo <> 'A' && $tipo <> 'P')@$msg .= "Tipo inserido não é valido <br>";
-		if (!filter_var($email, FILTER_VALIDATE_EMAIL))$msg .= "Email não é valido <br>";
+		if(odbc_num_rows($selectEmail) > 0)@$msg .= "Email j&aacute; cadastrado <br>";	
+		if(odbc_num_rows($selectid) > 0)@$msg .= "ID j&aacute; cadastrado <br>";	
+		if(!is_numeric($id))@$msg .= "ID inserido n&atilde;o é numerico <br>";
+		if(strlen($id) <> 6)@$msg .= "ID inserido n&atilde;o contem exatos 6 digitos <br>";
+		if($tipo <> 'A' && $tipo <> 'P')@$msg .= "Tipo inserido n&atilde;o é valido <br>";
+		if (!filter_var($email, FILTER_VALIDATE_EMAIL))$msg .= "Email n&atilde;o &eacute; valido <br>";
 		
 		// Verifica se algum erro foi encontrado para então fazer a inserção
 		if(!isset($msg)){

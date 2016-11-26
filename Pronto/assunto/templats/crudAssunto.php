@@ -4,7 +4,7 @@
 		<link rel="icon" type="image/png" sizes="16x16" href="../img/logopag.png">
 		<link rel="stylesheet" type="text/css" href="../css/estilo.css">
 		<meta html lang="pt-br">
-		<meta charset='UTF-8'>
+		<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1">
 		<title>Estrutura - PI II</title>
 	</head>
 	<body>
@@ -23,7 +23,7 @@
 						echo "
 							<h3>Editar Assunto </h3>
 							<form id='frmaAssunto-crud' method='post' action='?ecod=".$result['codAssunto']."'>
-								<label class='label-default'>Selecione a area do assunto:</label>
+								<label class='label-default'>Selecione a &aacute;rea do assunto:</label>
 								<select id='slcCodArea' name='codArea'>";
 								
 									foreach($areas as $codigo => $area){
@@ -36,7 +36,7 @@
 									}
 						echo "		
 								</select>
-								<label class='label-default'>Descrição:</label>
+								<label class='label-default'>Descri&ccedil;&atilde;o:</label>
 								<input type='text' name='txtAssuntoUpdate'  class='style-input-default' value='".$result['assdescricao']."' />
 								
 								<input type='submit' name='btnAssuntoUpdate' class='btArea' value='Enviar' />
@@ -48,7 +48,7 @@
 						echo"
 							<h3>Inserir Assunto </h3>
 							<form id='frmaAssunto-crud' method='post'>
-							<label class='label-default'>Selecione a area do assunto:</label>
+							<label class='label-default'>Selecione a &aacute;rea do assunto:</label>
 							<select id='slcCodArea' name='codArea'>
 								<option class='area' value='0'>Selecione o assunto</option>";
 								foreach($areas as $codigo => $area){
@@ -56,7 +56,7 @@
 								}
 						echo "
 							</select>
-							<label class='label-default'>Descrição:</label>
+							<label class='label-default'>Descri&ccedil;&atilde;o:</label>
 							<input type='text' id='txtAssuntoDesc' name='txtInclude'  class='style-input-default' disabled />
 							<input type='submit' name='btnInclude' class='btArea' value='Enviar' />
 							<a href='index.php'><input type='button' name='btnVolt' class='btArea' value='Voltar'/></a>
