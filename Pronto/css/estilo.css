@@ -1,0 +1,606 @@
+﻿/*estilo CSS*/
+* { font-family: "Roboto", sans-serif; }
+
+*body {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+a{ text-decoration: none; }
+
+input { 
+  outline: none;
+}
+
+header {
+  margin: 0px 0px ;
+  position: absolute;
+  float: left;
+  left: 0px;
+  bottom: 860px;
+  top: 0px;
+  width: 100%;
+  height: 50px;
+  background-color: #385965;
+  z-index:999;
+}
+
+ /* Menu principal */   
+#menu {
+  height: 70px;
+  width: auto;
+  z-index:999;
+}
+
+#menu > ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+  list-style-type: none;
+}
+
+#menu > ul > li {
+  float: left;
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 5px 20px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-item:hover { 
+  background-color: #444;
+  z-index:999;
+}
+
+.nav-content {
+  position: absolute;
+  top: 70px;
+  overflow: hidden;
+  background: #222;
+}
+
+.nav-content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-content a:hover {
+  text-decoration: underline;
+}
+
+.nav-sub {
+  padding: 20px;
+}
+
+.nav-sub ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.nav-sub ul li a {
+  display: inline-block;
+  padding: 5px 0;
+}
+
+#frmarea {
+  height: 500px;
+  width: 95%;
+  margin: 50px 2%; 
+  left: 0;
+  padding: 0; 
+  position: relative;
+  float: left;
+  background-color: #fff;
+}
+
+/****************** HOME *************************/
+
+#section {
+  height: 500px;
+  width: 90%;
+  margin: 50px auto; 
+  margin-left: 5%;
+  padding: 20px; 
+  position: absolute;
+  float: left;
+  background-color: #fff;
+}
+
+#container {
+  position: absolute;
+  width: 480px;
+  height: 320px;
+  margin: 3% 4%;
+  left: 2%;
+}
+
+.principal {
+  width: 500px;
+  height: auto;
+  overflow: hidden;
+}
+
+.slide {
+  display: flex;
+  width: 600%;
+  height: 10%;
+  transition: all .8s;
+}
+
+label img{
+  position: relative;
+  top: 160%;
+  width: 96px;
+  height: auto;
+  cursor: pointer;
+  float: left;
+  opacity: 0.3;
+  transition: all .4s;
+}
+
+#textos {
+  position: relative;
+  left: 45%;
+  top: 28%;
+  color: #385965;
+  font-size:30px;
+  height: 60%;
+  width: 46%;
+  word-wrap: break-word;
+  letter-spacing:3px;
+  float: left;
+}
+
+#textos a{
+  color:#00BBD4;  
+}
+
+#textos a:hover{
+  text-decoration:underline; 
+}
+
+#foto1:checked ~  .principal .slide{
+  margin-left: 4%;
+}
+
+#foto2:checked ~ .principal .slide{
+  margin-left: -92%;
+}
+
+#foto3:checked ~ .principal .slide{
+  margin-left: -192%;
+}
+
+#foto4:checked ~ .principal .slide{
+  margin-left: -288%;
+}
+
+#foto5:checked ~ .principal .slide{
+  margin-left: -388%;
+}
+
+input[name="grupo"]{
+  display:none;
+}
+
+input[name="grupo"]:checked + label img{
+  opacity: 1;
+}
+
+.invisivel{
+  display:none;
+}
+
+/*Mensagem de erro*/
+#msg {
+  float: left;
+  position: absolute;
+  height: auto;
+  width: 200px;
+  margin-left: 45%;
+}
+
+#form-content {
+  float: left;
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+#form-content > h3 {
+  color: #2c3e50;
+  left: 1.5%;
+  position: relative;
+  text-transform:uppercase;  
+}
+
+/* Pesquisa */
+#frma {
+  outline: 0;
+  width: 100%;
+  height: auto;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  font-size: 14px;
+  position: relative;
+}
+
+#frma label {
+  border: none;
+  background: transparent;
+  margin-bottom: 10px;
+  height: 45px;
+	font-size: 16px;
+	padding-right: 10px;
+}
+
+#frma input[type="text"] {
+  width: 340px;
+  background: #fff;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+
+#frma input[type='text']:focus {
+  border-bottom: solid 2px #2980b9; 
+}
+
+#frma #btnNovo,
+#frma #btnPesquisar,
+#frmarea-crud .btArea,
+#frmaAssunto-crud .btArea
+{
+	-moz-box-shadow: inset 0px 0px 0px 0px #385965;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #385965;
+  box-shadow: inset 0px 1px 0px 0px #385965;
+  background-color: #385965;
+  border: 1px solid #385965;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+	outline: none;
+  position: absolute;
+  border-radius: 4px;
+}
+
+#frma #btnNovo {
+  right: 0.5%;
+  top: -70px;
+  position: absolute;
+}
+
+/* Grade de itens da area */
+
+#area-content {
+  float: left;
+  position: relative;
+  width: 96%;
+  height: auto;
+  margin-top: -25px;
+}
+
+table {
+  font-family: "Roboto", sans-serif;     
+  border-collapse: collapse;
+  box-shadow: inset 0 0px 0 #fff;
+  font-size: 14px;
+  line-height: 20px;
+  margin: 20px auto;
+  margin-left: 1%;
+  text-align: left;
+  width: 100%;
+} 
+
+td {
+  padding: 10px 15px;
+  position: relative;
+}
+
+tr:hover{
+  background-color:#00BBD4; 
+}
+
+td:first-child {
+  box-shadow: inset 0px 0 0 #fff;
+} 
+
+td:last-child {
+  border-right: 1px solid #e8e8e8;
+} 
+
+thead {
+  font-size: 14px;
+  color: #fff;
+  background-color: #385965;
+  pointer-events:none;
+}
+
+.cmcodigo { width: 100px; }
+.cmdescricao { width: 66%; }
+
+.adel,
+.aedit {
+  color: #385965;
+  text-decoration: none;
+}
+
+.adel:hover,
+.aedit:hover {
+  color: #2c3e50;
+  text-decoration: underline;
+}
+
+/*Crud da area */
+
+#sectioncarea{
+  position:absolute;  
+  width:40%;
+  height:60%;
+  background-color: white;
+  top: 15%;
+  right: 40%;
+  left: 30%;
+}
+
+#frmarea-crud input {
+  float: left;
+  margin: 0px 50px;
+  top: 100px;
+  left: 80px;
+}
+
+#frmarea-crud h3{
+  text-transform:uppercase;
+  letter-spacing:8px;
+  top:40px;
+  left:150px;
+}
+
+#frmarea-crud input[type='button'] {
+  margin-left:280px;
+  position:absolute;
+  margin-top:180px;
+}
+#frmarea-crud input[type='submit'] {
+  margin-left:120px;
+  position:absolute;
+  margin-top:180px;
+}
+
+.label-default { 
+  margin: 70px 50px;
+  color: #385965;
+  top: 100px;
+  left: 200px;
+}
+
+.style-input-default {
+  width: 320px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  margin: 5px 1px 3px 0px;
+  border-bottom: 1px solid #ccc;
+  top:50px;
+  left:60px;
+}
+
+.style-input-default:focus {
+  margin: 5px 1px 3px 0px;
+  border-bottom: 1px solid #385965;
+}
+
+/*Crud de assunto*/
+#frmaAssunto-crud input, #frmaAssunto-crud label , #frmarea-crud input, #frmarea-crud label  {
+  position: relative;
+} 
+
+#frmaAssunto-crud{
+  width: 50%;
+  left: 30%;
+  right: 35%;
+  position: relative;
+  float: left;
+  height: auto;
+  margin-top:100px;
+  float: left;
+}
+
+#frmaAssunto-crud label{
+  display: block;
+  padding: 20px;
+  margin: 0;
+  left: 75px;
+  top: 70px;
+}
+
+#frmaAssunto-crud select {
+  position:relative;
+  margin-left:13px;
+  padding: 8px 48px;
+  left:75px;
+  top:65px;
+}
+
+#crudAssunto {
+  position: relative;
+  margin: 0 auto;
+}
+
+#crudAssunto h3, #crudArea h3,#crudProf h3{
+  text-transform:uppercase;
+  letter-spacing:8px;
+  position: absolute;
+  left: 38%;
+  right: 35%;
+  margin-top:5%;
+}
+
+#txtAssuntoDesc{
+  left:90px;
+  top:70px;
+  z-index: 120;
+}
+
+#frmaAssunto-crud input[type='submit'] {
+  margin-left:-230px;
+  position:absolute;
+  margin-top:135px;
+}
+
+#frmaAssunto-crud input[type='button'] {
+  margin-left:-90px;
+  position:absolute;
+  margin-top:135px;
+}
+
+/*FORM CADASTRO PROFESSOR */
+#frmprof {
+
+  height: 540px;
+  width: 55%;
+  margin: 50px 5%; 
+  top:45px;  
+  left: 275px;
+  padding: 20px; 
+  position: relative;
+  float: left;
+  background-color: #fff;
+  border-radius:20px;
+
+  }
+
+  #frmprof h3{
+    letter-spacing: 4px;
+    }
+
+.cmNome{
+  width:20%
+}
+.cmEmail{
+  width:20%;
+}
+.cmID{
+  width:6%;
+}
+.cmTipo{
+  width:5%;
+}
+
+/* AUGUSTO 19/10*/
+#frmProf-crud input{
+  position:relative;
+  display:inline-block;
+  margin-left:20%;
+  top: 10px;
+
+
+}
+#frmProf-crud label{
+  position:relative;
+  margin-left:80%;
+  margin-top:10%;
+  top: 50px;
+  left: -600px;
+}
+#frmProf-crud input[type="radio"]{
+  display:inline;
+
+  width:15px;
+  left: 40px;
+  top: 50px;
+  margin-top:20px;
+  margin-left: 230px;
+}
+#frmProf-crud .btArea{
+  position:relative;
+
+  margin-left:2%;
+  top:120px;
+  left: -300px;
+
+
+  -moz-box-shadow: inset 0px 0px 0px 0px #385965;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #385965;
+  box-shadow: inset 0px 1px 0px 0px #385965;
+  background-color: #385965;
+  border: 1px solid #385965;
+ 
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 9px 18px;
+  text-decoration: none;
+  outline: none;
+
+  border-radius: 4px;
+
+
+}
+
+#crudProf h3 {
+  top: -15%;
+}
+
+/*
+
+
+/*Feito augusto 13/10*/
+#btnVoltar{
+  -moz-box-shadow: inset 0px 0px 0px 0px #385965;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #385965;
+  box-shadow: inset 0px 1px 0px 0px #385965;
+  background-color: #385965;
+  border: 1px solid #385965;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  outline: none;
+  position: absolute;
+  border-radius: 4px;
+  position:relative;
+  margin-right:5px;
+}
+#btnVoltar a {
+	 color:white;
+	text-decoration:none;
+}
+
+/* Paginação */
+
+#tablet li {
+	display: inline;
+}
+#tablet li a {
+	color: white;
+	text-decoration:none;
+	padding: 5px 10px;
+	background-color: #385965;
+}
+#tablet li a:hover{
+	color:white;
+	text-decoration:none;
+	background-color: #444;
+}
+.cmdescricao a {color:black;}
+.cmdescricao a:hover {text-decoration:underline;}
