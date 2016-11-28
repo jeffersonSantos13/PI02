@@ -1,0 +1,695 @@
+﻿/*estilo CSS*/
+* { font-family: "Roboto", sans-serif; }
+
+*body {
+  background: #76b852; /* fallback for old browsers */
+  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
+  background: -moz-linear-gradient(right, #76b852, #8DC26F);
+  background: -o-linear-gradient(right, #76b852, #8DC26F);
+  background: linear-gradient(to left, #76b852, #8DC26F);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;      
+}
+
+a{ text-decoration: none; }
+
+input { 
+  outline: none;
+}
+
+header {
+  margin: 0px 0px ;
+  position: absolute;
+  float: left;
+  left: 0px;
+  bottom: 860px;
+  top: 0px;
+  width: 100%;
+  height: 50px;
+  background-color: #385965;
+  z-index:999;
+}
+
+ /* Menu principal */   
+#menu {
+  height: 70px;
+  width: auto;
+  z-index:999;
+}
+
+#menu > ul {
+  margin: 0;
+  padding: 0;
+  float: left;
+  list-style-type: none;
+}
+
+#menu > ul > li {
+  float: left;
+}
+
+.nav-item {
+  display: inline-block;
+  padding: 5px 20px;
+  height: 40px;
+  line-height: 40px;
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-item:hover { 
+  background-color: #444;
+  z-index:999;
+}
+
+.nav-content {
+  position: absolute;
+  top: 70px;
+  overflow: hidden;
+  background: #222;
+}
+
+.nav-content a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.nav-content a:hover {
+  text-decoration: underline;
+}
+
+.nav-sub {
+  padding: 20px;
+}
+
+.nav-sub ul {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.nav-sub ul li a {
+  display: inline-block;
+  padding: 5px 0;
+}
+
+#frmarea {
+  height: auto;
+  width: 96%;
+  margin: 50px 2%;
+  left: 0;
+  padding: 0; 
+  position: relative;
+  float: left;
+  background-color: #fff;
+}
+
+/****************** HOME *************************/
+
+#section{
+  height: 500px;
+  width: 70%;
+  margin: 50px 2%; 
+  top:90px;  
+  left: 190px;
+  padding: 20px; 
+  position: relative;
+  float: left;
+  background-color: #fff;
+  border-radius:50px;
+}
+
+#container{
+  position: absolute;
+  width: 480px;
+  height: 320px;
+  margin: 210px auto;
+  left: 18%;
+  top: -25%;
+}
+
+.principal{
+  
+  width: 500px;
+  height: auto;
+  overflow: hidden;
+  position:absolute;
+  top:150px;
+}
+
+.slide{
+  display:flex;
+  width: 600%;
+  height: 10%;
+  transition: all .8s;
+}
+
+
+label img{
+  position: relative;
+  top: 560px;
+  left: -10px;
+  width: 96px;
+  cursor: pointer;
+  float: left;
+  opacity: 0.3;
+  transition: all .4s;
+}
+
+#textos{
+  position: absolute;
+  left: 590px;
+  top: 28%;
+  color:#385965;
+  font-size:30px;
+  height: 60%;
+  width: 46%;
+  word-wrap: break-word;
+  letter-spacing:3px;
+}
+
+#textos a{
+  color:#00BBD4;  
+}
+
+#textos a:hover{
+  text-decoration:underline; 
+}
+
+#foto1:checked ~  .principal .slide{
+
+  margin-left: 4%;
+  
+}
+
+
+#foto2:checked ~ .principal .slide{
+
+  margin-left: -92%;
+}
+
+
+#foto3:checked ~ .principal .slide{
+
+  margin-left: -192%;
+}
+
+#foto4:checked ~ .principal .slide{
+
+  margin-left: -288%;
+}
+
+#foto5:checked ~ .principal .slide{
+
+  margin-left: -388%;
+}
+
+input[name="grupo"]{
+  display:none;
+
+}
+
+input[name="grupo"]:checked + label img{
+  opacity: 1;
+
+}
+
+.invisivel{
+  display:none;
+  
+}
+
+/*Mensagem de erro*/
+#msg {
+  float: left;
+  position: absolute;
+  height: auto;
+  width: 200px;
+  margin-left: 45%;
+}
+
+/* Pesquisa */
+#frma {
+  outline: 0;
+  width: 100%;
+  height: auto;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  font-size: 14px;
+  position: relative;
+}
+
+#frma label {
+  border: none;
+  background: transparent;
+  margin-bottom: 10px;
+  height: 45px;
+  font-size: 16px;
+  padding-right: 10px;
+}
+
+#frma input[type="text"] {
+  width: 340px;
+  background: #fff;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  transition: border 0.3s;
+}
+
+#frma input[type='text']:focus {
+  border-bottom: solid 2px #2980b9; 
+}
+
+#frma #btnNovo,
+#frma #btnPesquisar,
+#frmarea-crud .btArea,
+#frmaAssunto-crud .btArea,
+#frmprofessor-crud .btArea,
+#frmquestao-crud .btArea
+{
+  -moz-box-shadow: inset 0px 0px 0px 0px #385965;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #385965;
+  box-shadow: inset 0px 1px 0px 0px #385965;
+  background-color: #385965;
+  border: 1px solid #385965;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  outline: none;
+  position: absolute;
+  border-radius: 4px;
+}
+
+#frma #btnNovo {
+  right: 0.5%;
+  top: -70px;
+  position: absolute;
+}
+
+/* Grade de itens  */
+
+#area-content {
+  float: left;
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: -25px;
+}
+
+table {
+  font-family: "Roboto", sans-serif;     
+  border-collapse: collapse;
+  box-shadow: inset 0 0px 0 #fff;
+  font-size: 14px;
+  line-height: 20px;
+  margin: -30px auto;
+  margin-left: 1%;
+  text-align: left;
+  width: 100%;
+} 
+
+td {
+  padding: 10px 15px;
+  position: relative;
+}
+
+td:first-child {
+  box-shadow: inset 0px 0 0 #fff;
+} 
+
+td:last-child {
+  border-right: 1px solid #e8e8e8;
+} 
+
+thead {
+  font-size: 14px;
+  color: #fff;
+  background-color: #385965;
+  pointer-events:none;
+}
+
+.cmcodigo { width: 100px; }
+.cmdescricao { width: 66%; }
+
+.adel,
+.aedit {
+  color: #385965;
+  text-decoration: none;
+}
+
+.adel:hover,
+.aedit:hover {
+  color: #808080;
+  text-decoration: underline;
+}
+
+/* ----------------------------------------------- Crud ---------------------------------------- */
+#frmaAssunto-crud input, #frmaAssunto-crud label , #frmarea-crud input, #frmarea-crud label  {
+  position: relative;
+}
+
+#frmarea-crud,
+#frmaAssunto-crud{
+  width: 100%;
+  height: 600px;
+}
+
+#frmquestao-crud {
+  width: 100%;
+  height: 700px;
+}
+
+#form-content {
+  float: left;
+  position: relative;
+  height: auto;
+  width: 100%;
+}
+
+#form-content > h3 {
+  color: #2c3e50;
+  position: relative;
+  text-transform:uppercase;
+}
+
+.crud-cad{
+  position: relative;
+  width: 48%;
+  height: 70%;
+  border: 1px solid #808080;
+  top: 15%;
+  margin: auto;
+}
+
+.crud-prof {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  border: 1px solid #808080;
+  margin: auto;
+}
+
+.crud-questao {
+  position: relative;
+  width: 100%;
+  height: 1000px;
+  border: 1px solid #808080;
+  margin: auto;
+}
+
+#frmarea-crud input {
+  position:relative;
+  display:inline-block;
+  left: 14%;
+  top: 100px;
+}
+
+#frmarea-crud label {
+  position:relative;
+  left: 11%;
+  margin-top: 10%;
+  top: 100px;
+  font-size: 16px;
+}
+
+#frmarea-crud h3,
+#frmaAssunto-crud h3,
+#frmprofessor-crud h3,
+#frmquestao-crud h3{
+  text-transform:uppercase;
+  letter-spacing:4px;
+  top:40px;
+  right: 40%;
+}
+
+#frmarea-crud h3 { left: 30%; }
+#frmaAssunto-crud h3 { left: 34% }
+#frmprofessor-crud h3{ left: 34%; top: 20px; }
+#frmquestao-crud h3 { left: 35%; }
+.prof-titulo { margin-left: -11%}
+
+#frmarea-crud input[type='button'] {
+  margin-left: 47%;
+  position:absolute;
+  margin-top: 180px;
+}
+
+#frmarea-crud input[type='submit'] {
+  margin-left: 12%;
+  position:absolute;
+  margin-top:180px;
+}
+
+#frmaAssunto-crud label{
+  padding: 20px;
+  margin: 0;
+  display: block;
+  left: 10%;
+  top: 70px;
+  font-size: 16px;
+}
+
+#frmaAssunto-crud select {
+  position:relative;
+  padding: 8px 60px;
+  left: 47%;
+  top: 20px;
+  display: inline;
+}
+
+#txtAssuntoDesc{
+  left: 35%;
+  top: 10px;
+  width: 360px;
+}
+
+#frmaAssunto-crud input[type='submit'] {
+  margin-left: 28%;
+  margin-top: 95px;
+  display: block;
+  position:absolute;
+}
+
+#frmaAssunto-crud input[type='button'] {
+  display: block;
+  margin-left: 63%;
+  position:absolute;
+  margin-top: 95px;
+}
+
+#frmprofessor-crud input[type='submit'] {
+  margin-left: 33%;
+  margin-top: 535px;
+  display: block;
+  position:absolute;
+}
+
+#frmprofessor-crud input[type='button'] {
+  display: block;
+  margin-left: 56%;
+  position:absolute;
+  margin-top: 535px;
+}
+
+#frmprofessor-crud {
+  height: 540px;
+  width: 55%;
+  margin: 20px 5%;
+  top:45px;
+  left: 275px;
+  padding: 20px;
+  position: relative;
+  float: left;
+  background-color: #fff;
+  border-radius:20px;
+}
+
+#frmprofessor-crud input{
+  position:relative;
+  display:inline-block;
+  margin-left:20%;
+  top: 10px;
+}
+
+#frmprofessor-crud label{
+  position:relative;
+  margin-left: 80%;
+  margin-top:10%;
+  top: 50px;
+  left: -600px;
+}
+
+#frmprofessor-crud input[type="radio"]{
+  display:inline;
+  width:15px;
+  left: 40px;
+  top: 50px;
+  margin-top: 20px;
+  margin-left: 230px;
+}
+
+.cmNome{ width:35% }
+.cmEmail{  width:34%; }
+.cmID{ width:6%; }
+.cmTipo{ width:5%; }
+
+#frmquestao-crud {
+  height: auto;
+  width: 60%;
+  margin: 20px 5%;
+  top:45px;
+  left: 275px;
+  padding: 20px;
+  position: relative;
+  float: left;
+  background-color: #fff;
+  border-radius:20px;
+}
+
+#frmquestao-crud label {
+  position:relative;
+  margin-left: 80%;
+  margin-top:10%;
+  top: 50px;
+  left: -600px;
+}
+
+#frmquestao-crud select {
+  position:relative;
+  padding: 8px 60px;
+  left: 47%;
+  top: 20px;
+  display: inline;
+}
+
+#frmquestao-crud textarea {
+  width: 30em;
+  height: 10em;
+  max-width: 40em;
+  max-height: 15em;
+  padding: 1em;
+  border: 0.1em solid #808080;
+  border-radius: 0.5em;
+  left: 25%;
+  top: 30px;
+  position: relative;
+}
+
+.rdquestao {
+  display: inline-block;
+}
+
+.label-default-questao {
+  color: #385965;
+}
+
+.label-default {
+  margin: 70px 50px;
+  color: #385965;
+  top: 100px;
+  left: 200px;
+}
+
+.style-input-default {
+  width: 320px;
+  outline: none;
+  border: none;
+  padding: 10px;
+  margin: 5px 1px 3px 0px;
+  border-bottom: 1px solid #ccc;
+  top:50px;
+  left:60px;
+}
+
+.style-input-default:focus {
+  margin: 5px 1px 3px 0px;
+  border-bottom: 1px solid #385965;
+}
+
+/* Fim cruds */
+
+/*Feito augusto 13/10*/
+#btnVoltar{
+  -moz-box-shadow: inset 0px 0px 0px 0px #385965;
+  -webkit-box-shadow: inset 0px 0px 0px 0px #385965;
+  box-shadow: inset 0px 1px 0px 0px #385965;
+  background-color: #385965;
+  border: 1px solid #385965;
+  display: inline-block;
+  cursor: pointer;
+  color: #FFFFFF;
+  font-size: 14px;
+  padding: 8px 18px;
+  text-decoration: none;
+  outline: none;
+  position: absolute;
+  border-radius: 4px;
+  position:relative;
+  margin-right:5px;
+}
+#btnVoltar a {
+  color:white;
+  text-decoration:none;
+}
+
+/* Paginação */
+
+#tablet {
+  z-index: 10;
+  position: absolute;
+  bottom: -20px;
+}
+
+#tablet li {
+  display: inline;
+}
+#tablet li a {
+  color: #2c3e50;
+  border: 1px solid #ccc;
+  text-decoration:none;
+  padding: 5px 10px;
+  background-color: #fff;
+}
+#tablet li a:hover{
+  color:white;
+  text-decoration:none;
+  background-color: #444;
+}
+
+.cmdescricao a {color:black;}
+.cmdescricao a:hover {text-decoration:underline;}
+
+/* Botão de Editar e deletar */
+.edit {
+  box-shadow: 0px 0px 5px 0px rgb(84, 163, 247) inset;
+  background: rgb(188, 232, 247) linear-gradient(to bottom, rgb(188, 227, 245) 5%, rgb(16, 141, 230) 100%) repeat scroll 0% 0%;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: Verdana;
+  padding: 7px 13px;
+  text-decoration: none;
+}
+
+.edit a {
+  color: #FFFFFF;
+}
+
+.delet {
+  box-shadow: 0px 0px 5px 0px rgb(214, 34, 34) inset;
+  background: rgb(252, 101, 101) linear-gradient(to bottom, rgb(252, 101, 101) 5%, rgb(255, 36, 36) 100%) repeat scroll 0% 0%;
+  border-radius: 2px;
+  cursor: pointer;
+  color: rgb(255, 250, 250);
+  font-family: Verdana;
+  padding: 7px 13px;
+  text-decoration: none;
+}
+
+.delet a{
+  color: #FFFFFF;
+}
